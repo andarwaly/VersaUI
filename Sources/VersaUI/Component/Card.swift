@@ -44,25 +44,17 @@ public struct VerticalCard<Content: View>: View {
         }
         .padding(padding)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .gesture(
-            LongPressGesture(minimumDuration: 0.5) // Increased the duration to 0.5 seconds
-                .onChanged { _ in
-                    withAnimation(.spring()) {
-                        isTapped = true
-                    }
-                }
-                .onEnded { _ in
-                    withAnimation(.spring()) {
-                        isTapped = false
-                    }
-                }
-        )
+        .scaleEffect(isTapped ? 0.97 : 1.0) // Slightly scale the card when tapped
+        .onLongPressGesture {
+            isTapped.toggle()
+        }
         .background(
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(getBackgroundColor())
                 .stroke(VersaColor.Neutral.Border.subtle.opacity(0.4), lineWidth: 1)
         )
         .shadow(getShadowStyle())
+        .animation(.spring(), value: isTapped)
     }
     
     // Helper function to determine the background color based on the color scheme
