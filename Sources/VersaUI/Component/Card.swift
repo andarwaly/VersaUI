@@ -43,6 +43,7 @@ public struct VerticalCard<Content: View>: View {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(VersaColor.Neutral.Background.primary)
         )
+        .shadow(isTapped ? .flat : .raised)
         .onTapGesture {
             withAnimation(.bouncy(duration:0.2)) {
                 // Trigger the symbol effect on button tap
