@@ -15,15 +15,25 @@ public struct VersaColor {
     
     public struct Neutral {
         
+        public struct Foreground {
+            public static let primary = Color("Neutral/12", bundle: .module)
+            public static let secondary = Color("Neutral/11", bundle: .module)
+        }
+        
         public struct Background {
             public static let primary = Color("Neutral/1", bundle: .module)
             public static let secondary = Color("Neutral/2", bundle: .module)
-        }
-        
-        public struct Interactive {
-            public static let rest = Color("Neutral/3", bundle: .module)
-            public static let focussed = Color("Neutral/4", bundle: .module)
-            public static let pressed = Color("Neutral/5", bundle: .module)
+            
+            public struct Interactive {
+                public static let rest = Color("Neutral/3", bundle: .module)
+                public static let focussed = Color("Neutral/4", bundle: .module)
+                public static let pressed = Color("Neutral/5", bundle: .module)
+            }
+            
+            public struct Inverse {
+                public static let rest = Color("Neutral/9", bundle: .module)
+                public static let focussed = Color("Neutral/10", bundle: .module)
+            }
         }
         
         public struct Border {
@@ -32,29 +42,34 @@ public struct VersaColor {
             public static let focussed = Color("Neutral/8", bundle: .module)
         }
         
-        public struct Highlights {
-            public static let rest = Color("Neutral/9", bundle: .module)
-            public static let focussed = Color("Neutral/10", bundle: .module)
-        }
-        
-        public struct Text {
-            public static let primary = Color("Neutral/12", bundle: .module)
-            public static let secondary = Color("Neutral/11", bundle: .module)
+        public struct Effect {
+            public static let primary = Color("Neutral/9", bundle: .module)
+            public static let secondary = Color("Neutral/10", bundle: .module)
         }
         
     }
     
     public struct Brand {
         
+        public struct Foreground {
+            public static let primary = Color("Brand/12", bundle: .module)
+            public static let secondary = Color("Brand/11", bundle: .module)
+        }
+        
         public struct Background {
             public static let primary = Color("Brand/1", bundle: .module)
             public static let secondary = Color("Brand/2", bundle: .module)
-        }
-        
-        public struct Interactive {
-            public static let rest = Color("Brand/3", bundle: .module)
-            public static let focussed = Color("Brand/4", bundle: .module)
-            public static let pressed = Color("Brand/5", bundle: .module)
+            
+            public struct Interactive {
+                public static let rest = Color("Brand/3", bundle: .module)
+                public static let focussed = Color("Brand/4", bundle: .module)
+                public static let pressed = Color("Brand/5", bundle: .module)
+            }
+            
+            public struct Inverse {
+                public static let primary = Color("Brand/9", bundle: .module)
+                public static let secondary = Color("Brand/10", bundle: .module)
+            }
         }
         
         public struct Border {
@@ -63,16 +78,12 @@ public struct VersaColor {
             public static let focussed = Color("Brand/8", bundle: .module)
         }
         
-        public struct Highlights {
-            public static let rest = Color("Brand/9", bundle: .module)
-            public static let focussed = Color("Brand/10", bundle: .module)
+        public struct Effect {
+            public static let primary = Color("Brand/9", bundle: .module)
+            public static let secondary = Color("Brand/10", bundle: .module)
         }
         
-        public struct Text {
-            public static let primary = Color("Brand/12", bundle: .module)
-            public static let secondary = Color("Brand/11", bundle: .module)
-        }
-        
+
     }
 }
 
