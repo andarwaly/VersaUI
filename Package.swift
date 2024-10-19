@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "VersaUI",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v17),
         .macOS(.v10_15),
     ],
     products: [
