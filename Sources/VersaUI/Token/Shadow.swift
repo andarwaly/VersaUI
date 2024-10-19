@@ -58,15 +58,16 @@ struct VersaShadowModifier: ViewModifier {
     let style: VersaShadowStyle
 
     func body(content: Content) -> some View {
-        var modifiedContent = content
+        // Sequentially apply each shadow token to the content
+        var modifiedContent = AnyView(content)
         for token in style.tokens {
-            modifiedContent = token.apply(to: modifiedContent) as! VersaShadowModifier.Content
+            modifiedContent = AnyView(token.apply(to: modifiedContent))
         }
         return modifiedContent
     }
 }
 
-// Makes it easy to apply the shadow using a single method.
+// Extension to easily apply the shadow modifier to any View.
 extension View {
     func shadow(_ style: VersaShadowStyle) -> some View {
         self.modifier(VersaShadowModifier(style: style))
