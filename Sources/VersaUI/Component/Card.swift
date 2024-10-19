@@ -45,9 +45,18 @@ public struct VerticalCard<Content: View>: View {
         .padding(padding)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scaleEffect(isTapped ? 0.97 : 1.0) // Slightly scale the card when tapped
-        .onLongPressGesture {
-            isTapped.toggle()
+        .onTapGesture {
+            withAnimation {
+                // Trigger the symbol effect on button tap
+                isTapped = true
+                
+                // Reset the effect state after a delay to allow re-triggering
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    isTapped = false
+                }
+            }
         }
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         .background(
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(getBackgroundColor())
@@ -112,9 +121,18 @@ public struct HorizontalCard<Content: View>: View {
         .padding(padding)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scaleEffect(isTapped ? 0.97 : 1.0) // Slightly scale the card when tapped
-        .onLongPressGesture {
-            isTapped.toggle()
+        .onTapGesture {
+            withAnimation {
+                // Trigger the symbol effect on button tap
+                isTapped = true
+                
+                // Reset the effect state after a delay to allow re-triggering
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    isTapped = false
+                }
+            }
         }
+        clipShape(RoundedRectangle(cornerRadius: cornerRadius))
         .background(
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(getBackgroundColor())
