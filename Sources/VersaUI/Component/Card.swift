@@ -44,16 +44,18 @@ public struct VerticalCard<Content: View>: View {
                 .fill(VersaColor.Neutral.Background.primary)
         )
         .shadow(isTapped ? .flat : .raised)
-        .onTapGesture {
-            withAnimation(.bouncy(duration:0.2)) {
-                // Trigger the symbol effect on button tap
-                isTapped = true
-                
-                // Reset the effect state after a delay to allow re-triggering
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    isTapped = false
+        .gesture(
+            LongPressGesture(minimumDuration: 0.1)
+                .onChanged { _ in
+                    withAnimation(.spring()) {
+                        isTapped = true
+                    }
                 }
-            }
-        }
+                .onEnded { _ in
+                    withAnimation(.spring()) {
+                        isTapped = false
+                    }
+                }
+        )
     }
 }
